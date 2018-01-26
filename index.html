@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html> 
+    <style>
+        body {
+            width: 800;
+            text-align: center;
+            font-family: verdana, sans-serif, arial;  
+            background-color: #f6f3e6;
+            
+        }
+         fieldset {
+     
+          text-align: inherit;
+          border: 1px solid;
+          display: inline-block;
+             border-color:#949390;
+             
+        /*  opacity: 0.4;
+          filter: alpha(opacity=40); /* For IE8 and earlier */
+         
+            
+        }
+        
+        p {
+            font-size: 10px;
+        }
+        #theFile {
+          background-color:#332222;
+            width: 350px;
+            color: #ffffff;
+        }
+       
+                
+    </style>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        
+    </head>
+<body>
+    <h3>DERRICK DESIGN</h3>
+    <p>FOR DEMONISTRATION PURPOSE ONLY.</p>
+   
+<form class="formStyler" name = "uploadForm" action="upload.php" method="post"  enctype="multipart/form-data" >
+     <fieldset class = "fieldset_border">
+             <legend> File uploader</legend>
+                <input type="file" name="theFile" id ="theFile" accept = "image/gif,image/jpeg,image/jpg,image/png, application/pdf" onchange= "activator()" >
+                <input type="submit" value="Upload" class="submit" onclick = "validator()">
+                    <p>Please, upload JPG,PDF,PNG and JPEG formats only.</p>
+    </fieldset>
+</form>
+
+    <!-- form for registration-->
+    
+<form id='register' action='register.php' method='post'>
+<br/>
+     <fieldset>
+        <legend>Register</legend> <br/>
+            <input type='hidden' name='submitted' id='submitted' value='1'/><br/>
+            <label for='name' >First Name*: </label> <br/>
+            <input type='text' name='firstName' id='firstName' maxlength="50" /> <br/>
+            <label for='name' >Last Name*: </label> <br/>
+            <input type='text' name='lasttName' id='lastName' maxlength="50" /> <br/>
+            <label for='email' >Email Address*:</label> <br/>
+            <input type='text' name='email' id='email' maxlength="50" /> <br/>
+            <label for='post' >Post Address*:</label> <br/>
+            <input type='text' name='postAddress' id='postAdress' maxlength="50" /> <br/>
+
+            <label for='organization' >Organisation:</label> <br/>
+            <input type='text' name='organization' id='organization' maxlength="50" /> <br/>
+
+            <label for='password' >Password*:</label> <br/>
+            <input type='password' name='password' id='password' maxlength="50" /> <br/>
+            <label for='confirmPassword' >Confirm Password*:</label> <br/>
+            <input type='password' name='confirmPassword' id='confirmPassword' maxlength="50" /> <br/>
+            <input type='submit' name='Submit' value='REGISTER' /> <br/>
+    </fieldset>
+</form>
+    
+</body>
+    <script>
+        //enable upload button when file is selected from director
+        function activator (){
+            if(document.getElementById("theFile").value != "") {
+   // you have a file
+            $('.submit').attr('disabled',false);
+               
+            }
+        }
+        //javascript form validation, this part is not completed
+function validator() {
+  
+    var x = document.forms["uploadForm"]["theFile"].value;
+    //  var fileSize = document.getElementById('theFile').files[0].size;
+    if (x == null || x == "") {
+            $('.submit').attr('disabled','disabled');
+      //  $('.formStyler').attr('action','upload.php');
+              alert("Select a file before submiting " );
+      
+    }
+    else if ((x != null || x != "")) {
+          
+       alert("thanks");
+        //upload file checker not working
+          var actions =  window.location = "upload.php";
+
+        $(document).ready(function()
+        {
+	
+     //  $('#formStyler').attr('action', 'actions');
+ 
+        });
+        // databaser 
+        <?php
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "test";
+mysql_connect($dbhost,$dbuser,$dbpass) or die('cannot connect to the server'); 
+mysql_select_db($dbname) or die('database selection problem');
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
+?>
+        
+    }
+    
+}
+    </script>
+</html>
